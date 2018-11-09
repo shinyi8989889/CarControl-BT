@@ -165,6 +165,19 @@ public class ControlActivity extends AppCompatActivity {
             }
         });
 
+        switchfan2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                fan2Flag = isChecked;
+                if (isChecked){
+                    fanCMD = Fan2_on;
+                }else{
+                    fanCMD = Fan2_off;
+                }
+                sendCMD(fanCMD);
+            }
+        });
+
     } //end of onCreate()
 /****************************copy BTCode*****down******************************/
     // Sends a Command to remote BT device.

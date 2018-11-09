@@ -128,6 +128,8 @@ public class MainActivity extends AppCompatActivity {
 
         switch(item.getItemId()){
             case R.id.bt_search:
+                intent = new Intent(context,SearchActivity.class);  //********1109********
+                startActivity(intent);                              //********1109********
                 break;
 
             case R.id.bt_update:
