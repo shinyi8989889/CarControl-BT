@@ -9,6 +9,9 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
@@ -51,7 +54,7 @@ public class ControlActivity extends AppCompatActivity {
         context = this;
 
         textViewData = (TextView) findViewById(R.id.textView_controldata);
-        textViewData.setText("");
+        textViewData.setText("Received data:\n");            //*********************1113************
 
         Intent intent = getIntent();
         remoteDeviceInfo = intent.getStringExtra("btdata");
@@ -217,7 +220,7 @@ public class ControlActivity extends AppCompatActivity {
                     // construct a string from the valid bytes in the buffer
                     String readMessage = new String(readBuf, 0, msg.arg1);
 
-                    textViewData.append("remote : " + readMessage + "\n");   //display on TextView
+                    textViewData.append(readMessage);   //display on TextView  **********1113**************
                     Log.d(TAG,"Receive data : "+readMessage);
 
                     break;
@@ -242,7 +245,31 @@ public class ControlActivity extends AppCompatActivity {
             }
         }
     };
+//**************************1113 down*******************
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.controlmenu,menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.control_exit:
+                finish();
+                break;
+
+            case R.id.control_clear:
+                textViewData.setText("Received data:\n");
+                break;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+//**************************1113 up*******************
 
     @Override
     public void onDestroy() {
