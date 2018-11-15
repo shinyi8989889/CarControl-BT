@@ -81,7 +81,7 @@ public class CarActivity extends AppCompatActivity {
 
                     mChatService.connect(device);
                 }else{
-                    Toast.makeText(context,"Their is no BT device.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"There is no BT device.",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -90,7 +90,7 @@ public class CarActivity extends AppCompatActivity {
         buttonDown = (ImageButton) findViewById(R.id.imageButton_down);
         buttonRight = (ImageButton) findViewById(R.id.imageButton_right);
         buttonLeft = (ImageButton) findViewById(R.id.imageButton_left);
-        buttonStop = (ImageButton) findViewById(R.id.imageButton_stop);
+        buttonStop = (ImageButton) findViewById(R.id.imageButton_sensorstop);
         buttonTop.setOnClickListener(new myClick());
         buttonDown.setOnClickListener(new myClick());
         buttonRight.setOnClickListener(new myClick());
@@ -265,7 +265,7 @@ public class CarActivity extends AppCompatActivity {
                     sendCMD(directionCMD);
                     break;
 
-                case R.id.imageButton_stop:
+                case R.id.imageButton_sensorstop:
                     directionCMD = GO_Stop;
                     sendCMD(directionCMD);
                     break;

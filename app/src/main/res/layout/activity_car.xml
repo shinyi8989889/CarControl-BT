@@ -61,7 +61,7 @@
         app:srcCompat="@drawable/arrow_t" />
 
     <ImageButton
-        android:id="@+id/imageButton_stop"
+        android:id="@+id/imageButton_sensorstop"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
@@ -105,6 +105,6 @@
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton_stop"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton_sensorstop"
         app:srcCompat="@drawable/arrow_d" />
 </android.support.constraint.ConstraintLayout>
